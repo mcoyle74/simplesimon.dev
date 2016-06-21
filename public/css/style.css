@@ -16,7 +16,7 @@ h1, h2 {
 	position: relative;
 	margin: auto;
 }
-.square {
+.squares {
 	position: absolute;
 	height: 200px;
 	width: 200px;
