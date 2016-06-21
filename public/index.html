@@ -1,9 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Simple Simon</title>
+	<style type="text/css">
+		h1, h2 {
+			font-family: Helvetica, Arial, sans-serif;
+			border-bottom: 1px solid #000;
+		}
+		#game {
+			background-color: #444;
+			height: 460px;
+			width: 460px;
+			position: relative;
+			margin: auto;
+		}
+		.square {
+			position: absolute;
+			height: 200px;
+			width: 200px;
+			margin: 10px;	
+		}
+		#red {
+			background-color: #b22222;
+			top: 10px;
+			left: 10px;
+		}
+		#yellow {
+			background-color: #ffd700;
+			bottom: 10px;
+			right: 10px;
+		}
+		#green {
+			background-color: #227822;
+			bottom: 10px;
+			left: 10px;
+		}
+		#blue {
+			background-color: #12129b;
+			top: 10px;
+			right: 10px;
+		}
+		#control {
+			width: 460px;
+			margin: auto;
+			text-align: center;
+		}
+		#play {
+			height: 25px;
+			width: 100px;
+		}
+		.italics {
+			font-style: italic;
+		}
+	</style>
 </head>
-<body>
 
+<body>
+	<h1>simple simon</h1>
+<div id="game">
+	<div class="square" id="red"></div>
+	<div class="square" id="yellow"></div>
+	<div class="square" id="green"></div>
+	<div class="square" id="blue"></div>
+</div>
+<div id="control">
+	<h2>Press <span class="italics">Play</span> to begin.</h2>
+	<button id="play" type="button">Play</button>
+</div>
+	
 </body>
 </html>
