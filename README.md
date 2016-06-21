@@ -1,0 +1,1 @@
+Building a Simple Simon game with HTML, CSS and JS.
