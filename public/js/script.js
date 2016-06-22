@@ -15,10 +15,12 @@
 		sequence: [],
 		round: 0,
 		animateSequence: function() {
+			setTimeout(function() {
 				simon.sequence.forEach(function(element, index) {
 					var iteration = $('[data-id="' + element + '"]');
 					iteration.fadeOut(1000).fadeIn(1000);
 				});
+			}, 1000 * index)
 		},
 		gameOver: function() {
 			instructions.html('Game Over');
@@ -46,6 +48,7 @@
 		}
 		if (index == simon.sequence.length) {
 			index = 0;
+			instructions.html('Watch carefully.');
 			getRandomTile();
 		}
 	});
@@ -54,6 +57,6 @@
 		instructions.html('Watch carefully.');
 		setTimeout(function() {
 			getRandomTile();
-		}, 1000);
+		}, 1500);
 	});
 // });
