@@ -9,34 +9,21 @@
 	var blue = $('[data-id="4"]');
 	var tiles = $('[data-id]');
 	var control = $('#control');
+	var index = 0;
 
 	var simon = {
 		sequence: [],
 		round: 0,
 		animateSequence: function() {
-			setTimeout(function() {
 				simon.sequence.forEach(function(element, index) {
 					var iteration = $('[data-id="' + element + '"]');
 					iteration.fadeOut(1000).fadeIn(1000);
 				});
-			}, 1000)
 		},
-		check: function() {
-			player.sequence.forEach(function(color, index) {
-				if (color == simon.sequence[index]) {
-					console.log('success');
-					getRandomTile();
-					simon.round++;
-				} else {
-					console.log('failure')
-				}
-			});
+		gameOver: function() {
+			instructions.html('Game Over');
+			// add reset for another game
 		}
-	}
-
-	var player = {
-		sequence: [],
-		rounds: 0
 	}	
 
 	function getRandomTile() {
@@ -48,19 +35,19 @@
 		pressPlay.attr('hidden', true);
 	}
 	
-	$('[data-id]').click(function(event) {
-		var tilePressed = event.target.dataset.id;
+	$(tiles).click(function(event) {
+		var tilePressed = $(this).data('id');
 		console.log(parseInt(tilePressed));
-		if (tilePressed == 1) {
-			player.sequence.push(parseInt(tilePressed));
-		} else if (tilePressed == 2) {
-			player.sequence.push(parseInt(tilePressed));
-		} else if (tilePressed == 3) {
-			player.sequence.push(parseInt(tilePressed));
-		} else if (tilePressed == 4) {
-			player.sequence.push(parseInt(tilePressed));
+		if (tilePressed == simon.sequence[index]) {
+			index++;
+		} else {
+			index = 0;
+			gameOver();
 		}
-		simon.check();
+		if (index == simon.sequence.length) {
+			index = 0;
+			getRandomTile();
+		}
 	});
 
 	pressPlay.click(function() {
