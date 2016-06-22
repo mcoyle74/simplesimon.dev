@@ -17,7 +17,7 @@ h1 {
 	margin: auto;
 	border-radius: 20px;
 }
-.squares {
+.tiles {
 	position: absolute;
 	height: 200px;
 	width: 200px;

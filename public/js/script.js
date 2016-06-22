@@ -7,7 +7,7 @@
 	var yellow = $('#yellow');
 	var green = $('#green');
 	var blue = $('#blue');
-	var squares = $('.squares');
+	var tiles = $('.tiles');
 	var control = $('#control');
 
 	var simon = {
@@ -26,7 +26,7 @@
 		rounds: 0,
 	}	
 
-	function getRandomSquare() {
+	function getRandomTile() {
 		var integer = Math.floor(Math.random() * 4) + 1;
 		if (integer == 1) {
 			red.fadeOut(250).fadeIn(250);
@@ -47,23 +47,23 @@
 	}
 	
 	$('[data-id]').click(function(event) {
-		var squarePushed = event.target.dataset.id;
-		console.log(squarePushed);
-		if (squarePushed == 1) {
-			player.sequence.push(squarePushed);
-		} else if (squarePushed == 2) {
-			player.sequence.push(squarePushed);
-		} else if (squarePushed == 3) {
-			player.sequence.push(squarePushed);
-		} else if (squarePushed == 4) {
-			player.sequence.push(squarePushed);
+		var tilePressed = event.target.dataset.id;
+		console.log(parseInt(tilePressed));
+		if (tilePressed == 1) {
+			player.sequence.push(parseInt(tilePressed));
+		} else if (tilePressed == 2) {
+			player.sequence.push(parseInt(tilePressed));
+		} else if (tilePressed == 3) {
+			player.sequence.push(parseInt(tilePressed));
+		} else if (tilePressed == 4) {
+			player.sequence.push(parseInt(tilePressed));
 		} 
 	});
 
 	pressPlay.click(function() {
 		instructions.html('Watch carefully.');
 		setTimeout(function() {
-			getRandomSquare();
+			getRandomTile();
 		}, 1000);
 	});
 // });
