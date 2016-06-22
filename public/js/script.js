@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
 	var pressPlay = $('#play');
+	var instructions = $('#instructions');
 	var red = $('#red');
 	var yellow = $('#yellow');
 	var green = $('#green');
@@ -21,6 +22,10 @@ $(document).ready(function () {
 	}
 	
 	pressPlay.click(function() {
-		getRandomSquare();
+		instructions.html('Watch carefully.');
+		setTimeout(function() {
+			getRandomSquare();
+			instructions.html('Select the tiles that reproduce the sequence.');
+		}, 1000);
 	});
 });
