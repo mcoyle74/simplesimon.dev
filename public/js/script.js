@@ -17,7 +17,13 @@
 			// animate
 		},
 		check: function() {
-			// if (this.sequence[i])...
+			player.sequence.forEach(function(color, index) {
+				if (color == simon.sequence[index]) {
+					console.log('success');
+				} else {
+					console.log('failure')
+				}
+			});
 		}
 	}
 
@@ -27,19 +33,19 @@
 	}	
 
 	function getRandomTile() {
-		var integer = Math.floor(Math.random() * 4) + 1;
-		if (integer == 1) {
+		var randomColor = Math.floor(Math.random() * 4) + 1;
+		if (randomColor == 1) {
 			red.fadeOut(250).fadeIn(250);
-			simon.sequence.push(integer);
-		} else if (integer == 2) {
+			simon.sequence.push(randomColor);
+		} else if (randomColor == 2) {
 			yellow.fadeOut(250).fadeIn(250);
-			simon.sequence.push(integer);
-		} else if (integer == 3) {
+			simon.sequence.push(randomColor);
+		} else if (randomColor == 3) {
 			green.fadeOut(250).fadeIn(250);
-			simon.sequence.push(integer);
-		} else if (integer == 4) {
+			simon.sequence.push(randomColor);
+		} else if (randomColor == 4) {
 			blue.fadeOut(250).fadeIn(250);
-			simon.sequence.push(integer);
+			simon.sequence.push(randomColor);
 		}
 		simon.round++;
 		instructions.html('Select the tiles that reproduce the sequence.').append('<h3>Round: ' + simon.round + '</h3>');
@@ -57,7 +63,8 @@
 			player.sequence.push(parseInt(tilePressed));
 		} else if (tilePressed == 4) {
 			player.sequence.push(parseInt(tilePressed));
-		} 
+		}
+		simon.check();
 	});
 
 	pressPlay.click(function() {
