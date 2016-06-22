@@ -10,17 +10,19 @@ h1, h2 {
 	margin-bottom: 20px;
 }
 #game {
-	background-color: #444;
+	background-color: #333;
 	height: 460px;
 	width: 460px;
 	position: relative;
 	margin: auto;
+	border-radius: 20px;
 }
 .squares {
 	position: absolute;
 	height: 200px;
 	width: 200px;
-	margin: 10px;	
+	margin: 10px;
+	border-radius: 15px;	
 }
 #red {
 	background-color: #b22222;
