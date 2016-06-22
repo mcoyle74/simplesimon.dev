@@ -33,7 +33,7 @@
 	}
 	
 	squares.click(function() {
-
+		
 	});
 
 	pressPlay.click(function() {
