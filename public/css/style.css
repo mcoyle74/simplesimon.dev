@@ -15,7 +15,7 @@ h1 {
 	width: 460px;
 	position: relative;
 	margin: auto;
-	border: 20px solid #444;
+	border: 25px solid #444;
 	border-radius: 50%;
 	overflow: hidden;	
 }
@@ -37,7 +37,7 @@ h1 {
 	left: -8px;
 }
 #yellow {
-	background-color: #ffd700;
+	background-color: #eec700;
 	bottom: -8px;
 	right: -8px;
 }
