@@ -44,7 +44,7 @@
 			index++;
 		} else {
 			index = 0;
-			gameOver();
+			simon.gameOver();
 		}
 		if (index == simon.sequence.length) {
 			index = 0;
