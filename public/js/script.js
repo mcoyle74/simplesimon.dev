@@ -37,7 +37,7 @@
 		pressPlay.attr('hidden', true);
 	}
 	
-	$(tiles).click(function(event) {
+	tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
 		console.log(parseInt(tilePressed));
 		if (tilePressed == simon.sequence[index]) {
