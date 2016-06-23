@@ -14,9 +14,10 @@
 		disablePlayer();
 		var randomColor = Math.floor(Math.random() * 4) + 1;
 		sequence.push(randomColor);
-		console.log('sequence: ' + sequence);
+		console.log('getRandom-sequence: ' + sequence);
+		console.log('get-Random-round-before: ' + round);
 		round++;
-		console.log('round: ' + round);
+		console.log('get-Random-round-after: ' + round);
 		animateSequence();
 		instructions.html('Select the tiles that reproduce the sequence.').append('<h3>Round: ' + round + '</h3>');
 		pressPlay.attr('hidden', true);
@@ -35,20 +36,16 @@
 	}	
 
 	function start() {
+		round = 0;
+		sequence = [];
 		instructions.html('Press <span class="italics">Play</span> to begin.');
 		pressPlay.attr('hidden', false);
-		pressPlay.click(function() {
-		instructions.html('Watch carefully.');
-		setTimeout(function() {
-			getRandomTile();
-		}, 1500);
-	});
 	}
 
 	function playerGo() {
 		tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
-		console.log('pressed ' + parseInt(tilePressed));
+		console.log('playerGo-pressed ' + parseInt(tilePressed));
 		if (tilePressed == sequence[index]) {
 			index++;
 		} else {
@@ -59,7 +56,7 @@
 		if (index == sequence.length) {
 			index = 0;
 			highScore++;
-			console.log('high score: ' + highScore);
+			console.log('playerGo-high score: ' + highScore);
 			instructions.html('Watch carefully.');
 			getRandomTile();
 		}
@@ -81,15 +78,18 @@
 			instructions.html('Game Over<br>You reached round ' + round + ', a new high score!');
 		} else if (round < highScore) {
 			instructions.html('Game Over<br>You reached round ' + round + '. Please try again.');
-		} else {
-			alert('What the...?')
 		}
-		round = 0;
-		sequence = [];
 		setTimeout(function(){
 			start();
 		}, 3000);
 	}
+
+	pressPlay.click(function() {
+		instructions.html('Watch carefully.');
+		setTimeout(function() {
+			getRandomTile();
+		}, 1500);
+	});
 
 	disablePlayer();
 	start();
