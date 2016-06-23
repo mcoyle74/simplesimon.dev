@@ -5,6 +5,12 @@ body {
 h1 {
 	margin-left: 20px;
 }
+#score {
+	position: absolute;
+	margin-right: 25px;
+	top: 15px;
+	right: 50px;
+}
 #h1 {
 	border-bottom: 1px solid #000;
 	margin-bottom: 20px;

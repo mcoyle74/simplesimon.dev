@@ -16,8 +16,6 @@
 		sequence.push(randomColor);
 		round++;
 		animateSequence();
-		instructions.html('Select the tiles that reproduce the sequence.').append('<h3>Round: ' + round + '</h3>');
-		pressPlay.attr('hidden', true);
 	}
 
 	function animateSequence() {
@@ -25,10 +23,10 @@
 			sequence.forEach(function(element, index) {
 				setTimeout(function(){
 				var iteration = $('[data-id="' + element + '"]');
-				iteration.hide().fadeIn(1000);
+				iteration.hide().fadeIn(600);
 				}, 1000 * index);
 			});
-		}, 500);
+		}, 1500);
 		playerGo();
 	}	
 
@@ -40,6 +38,9 @@
 	}
 
 	function playerGo() {
+		setTimeout(function(){
+			instructions.html('Select tiles that duplicate the sequence.').append('<h3>Round: ' + round + '</h3>');
+		}, 1000);
 		tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
 		if (tilePressed == sequence[index]) {
@@ -52,7 +53,6 @@
 		if (index == sequence.length) {
 			index = 0;
 			highScore++;
-			instructions.html('Watch carefully.');
 			getRandomTile();
 		}
 	});
@@ -60,7 +60,6 @@
 
 	function disablePlayer() {
 		tiles.off('click');
-		instructions.html('Watch carefully.');
 	}
 
 	function gameOver() {
@@ -71,6 +70,7 @@
 		} else if (round < highScore) {
 			instructions.html('Game Over<br>You reached round ' + round + '. Please try again.');
 		}
+		$('#score').html('High Score: ' + highScore);
 		setTimeout(function(){
 			start();
 		}, 3000);
@@ -78,9 +78,10 @@
 
 	pressPlay.click(function() {
 		instructions.html('Watch carefully.');
+		pressPlay.attr('hidden', true);
 		setTimeout(function() {
 			getRandomTile();
-		}, 1500);
+		}, 1200);
 	});
 
 	disablePlayer();
