@@ -15,34 +15,56 @@ h1 {
 	width: 460px;
 	position: relative;
 	margin: auto;
-	border-radius: 20px;
+	border: 20px solid #444;
+	border-radius: 50%;
+	overflow: hidden;	
 }
-.tiles {
+.tiles, .flash {
 	position: absolute;
-	height: 200px;
-	width: 200px;
+	height: 220px;
+	width: 220px;
 	margin: 10px;
-	border-radius: 15px;	
+	border-radius: 15px;
 }
 #red {
 	background-color: #b22222;
-	top: 10px;
-	left: 10px;
+	top: -8px;
+	left: -8px;
+}
+#flash-red {
+	background-color: #e8bdbd;
+	top: -8px;
+	left: -8px;
 }
 #yellow {
 	background-color: #ffd700;
-	bottom: 10px;
-	right: 10px;
+	bottom: -8px;
+	right: -8px;
+}
+#flash-yellow {
+	background-color: #fff3b2;
+	bottom: -8px;
+	right: -8px;
 }
 #green {
 	background-color: #227822;
-	bottom: 10px;
-	left: 10px;
+	bottom: -8px;
+	left: -8px;
+}
+#flash-green {
+	background-color: #bdd6bd;
+	bottom: -8px;
+	left: -8px;
 }
 #blue {
 	background-color: #12129b;
-	top: 10px;
-	right: 10px;
+	top: -8px;
+	right: -8px;
+}
+#flash-blue {
+	background-color: #b8b8e1;
+	top: -8px;
+	right: -8px;
 }
 #control {
 	width: 460px;
