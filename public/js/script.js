@@ -71,12 +71,13 @@
 			instructions.html('Game Over<br>You reached round ' + round + '. Please try again.');
 		}
 		$('#score').html('High Score: ' + highScore);
-		setTimeout(function(){
-			start();
-		}, 3000);
+		pressPlay.attr('hidden', false);
+		pressPlay.html('Play again?');
 	}
 
 	pressPlay.click(function() {
+		round = 0;
+		sequence = [];
 		instructions.html('Watch carefully.');
 		pressPlay.attr('hidden', true);
 		setTimeout(function() {
