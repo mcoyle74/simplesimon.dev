@@ -1,6 +1,7 @@
 'use strict';
 
 // $(document).ready(function () {
+	
 	var pressPlay = $('#play');
 	var instructions = $('#instructions');
 	var red = $('[data-id="1"]');
@@ -17,18 +18,24 @@
 		animateSequence: function() {
 			setTimeout(function() {
 				simon.sequence.forEach(function(element, index) {
+					setTimeout(function(){
 					var iteration = $('[data-id="' + element + '"]');
-					iteration.fadeOut(1000).fadeIn(1000);
+					iteration.hide().fadeIn(1000);
+					}, 1000 * index);
 				});
-			}, 1000 * index)
+			}, 500);
+			playerGo();
 		},
 		gameOver: function() {
 			instructions.html('Game Over');
-			// add reset for another game
+			setTimeout(function(){
+				start();
+			}, 3000)
 		}
 	}	
 
 	function getRandomTile() {
+		disablePlayer();
 		var randomColor = Math.floor(Math.random() * 4) + 1;
 		simon.sequence.push(randomColor);
 		simon.round++;
@@ -37,7 +44,8 @@
 		pressPlay.attr('hidden', true);
 	}
 	
-	tiles.click(function(event) {
+	function playerGo() {
+		tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
 		console.log(parseInt(tilePressed));
 		if (tilePressed == simon.sequence[index]) {
@@ -52,11 +60,23 @@
 			getRandomTile();
 		}
 	});
+	}
 
-	pressPlay.click(function() {
+	function start() {
+		instructions.html('Press <span class="italics">Play</span> to begin.');
+		pressPlay.attr('hidden', false);
+		pressPlay.click(function() {
 		instructions.html('Watch carefully.');
 		setTimeout(function() {
 			getRandomTile();
 		}, 1500);
 	});
+	}
+
+	function disablePlayer() {
+		tiles.off('click');
+	}
+
+	disablePlayer();
+	start();
 // });
