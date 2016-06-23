@@ -9,7 +9,7 @@
 	var green = $('[data-id="3"]');
 	var blue = $('[data-id="4"]');
 	var tiles = $('[data-id]');
-	var control = $('#control');
+	var highScore = 0;
 	var index = 0;
 
 	var simon = {
@@ -60,6 +60,7 @@
 		}
 		if (index == simon.sequence.length) {
 			index = 0;
+			highScore++;
 			instructions.html('Watch carefully.');
 			simon.getRandomTile();
 		}
@@ -72,7 +73,15 @@
 	}
 
 	function gameOver() {
-		instructions.html('Game Over');
+		if (simon.round == highScore) {
+			instructions.html('Game Over<br>You reached round ' + simon.round + ', and matched your high score!');
+		} else if (simon.round > highScore) {
+			instructions.html('Game Over<br>You reached round ' + simon.round + ', a new high score!');
+		} else {
+			instructions.html('Game Over<br>You reached round ' + simon.round + '. Please try again.');
+		}
+		simon.round = 0;
+		simon.sequence = [];
 		setTimeout(function(){
 			start();
 		}, 3000);
