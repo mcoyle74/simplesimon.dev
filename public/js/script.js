@@ -7,14 +7,13 @@
 	var tiles = $('[data-id]');
 	var highScore = 0;
 	var sequence = [];
-	var round = 0;
+	var round = 1;
 	var index = 0;
 
 	function getRandomTile() {
 		disablePlayer();
 		var randomColor = Math.floor(Math.random() * 4) + 1;
 		sequence.push(randomColor);
-		round++;
 		animateSequence();
 	}
 
@@ -31,7 +30,7 @@
 	}	
 
 	function start() {
-		round = 0;
+		round = 1;
 		sequence = [];
 		instructions.html('Press <span class="italics">Play</span> to begin.');
 		pressPlay.attr('hidden', false);
@@ -52,7 +51,8 @@
 		}
 		if (index == sequence.length) {
 			index = 0;
-			highScore++;
+			round++;
+			highScore += round;
 			getRandomTile();
 		}
 	});
@@ -63,12 +63,12 @@
 	}
 
 	function gameOver() {
-		if (round == highScore) {
-			instructions.html('Game Over<br>You reached round ' + round + ', and matched your high score!');
-		} else if (round > highScore) {
-			instructions.html('Game Over<br>You reached round ' + round + ', a new high score!');
-		} else if (round < highScore) {
-			instructions.html('Game Over<br>You reached round ' + round + '. Please try again.');
+		if ((highScore != 0) && (round == highScore)) {
+			instructions.html('Game Over<br>You completed ' + (round - 1) + ' rounds, matching your high score!');
+		} else if ((highScore != 0) && (round > highScore)) {
+			instructions.html('Game Over<br>You completed ' + (round - 1) + ' rounds, a new high score!');
+		} else {
+			instructions.html('Game Over<br>You completed ' + (round - 1) + ' rounds. Please try again.');
 		}
 		$('#score').html('High Score: ' + highScore);
 		pressPlay.attr('hidden', false);
@@ -76,7 +76,7 @@
 	}
 
 	pressPlay.click(function() {
-		round = 0;
+		round = 1
 		sequence = [];
 		instructions.html('Watch carefully.');
 		pressPlay.attr('hidden', true);
