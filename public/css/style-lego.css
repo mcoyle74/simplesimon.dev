@@ -1,15 +1,21 @@
 body {
-	background-color: #f0f0f0;
-	color: #303030;
-	font-family: Helvetica, Arial, sans-serif;
+	background-image: url(/img/lego-gray.jpg);
+	background-size: cover;
+	background-repeat: repeat-y;
+	color: #000;
+	font-family: 'Comic Sans MS', cursive;
+	font-weight: bolder;
 	margin: 0;
 }
 h1 {
+	font-family: 'Comic Sans MS', cursive;
 	margin-left: 20px;
 	margin-bottom: 5px;
 }
 #header {
-	border-bottom: 1px solid #303030;
+	background-color: #303030;
+	color: #fff;
+	border-bottom: 1px solid #303030 ;
 	padding-top: 15px;
 	margin-bottom: 20px;
 }
@@ -17,6 +23,12 @@ div.options {
 	position: absolute;
 	float: left;
 	margin-left: 20px;
+}
+button {
+	background-color: #ddd;
+	font-family: 'Comic Sans MS', cursive;
+	border: 2px solid #303030 ;
+	border-radius: 10px;
 }
 #score {
 	position: absolute;
@@ -31,7 +43,7 @@ div.options {
 	position: relative;
 	margin: auto;
 	border: 25px solid #303030;
-	border-radius: 50%;
+	/*border-radius: 50%;*/
 	overflow: hidden;	
 }
 .tiles, .flash {
@@ -42,7 +54,8 @@ div.options {
 	border-radius: 15px;
 }
 #red {
-	background-color: #b22222;
+	background-image: url(/img/lego-red.jpg);
+	background-size: 230px 230px;
 	top: -8px;
 	left: -8px;
 }
@@ -52,7 +65,8 @@ div.options {
 	left: -8px;
 }
 #yellow {
-	background-color: #eec700;
+	background-image: url(/img/lego-yellow.jpg);
+	background-size: 230px 230px;
 	bottom: -8px;
 	right: -8px;
 }
@@ -62,8 +76,9 @@ div.options {
 	right: -8px;
 }
 #green {
-	background-color: #227822;
+	background-image: url(/img/lego-green.jpg);
 	bottom: -8px;
+	background-size: 230px 230px;
 	left: -8px;
 }
 #flash-green {
@@ -72,7 +87,8 @@ div.options {
 	left: -8px;
 }
 #blue {
-	background-color: #12129b;
+	background-image: url(/img/lego-blue.jpg);
+	background-size: 230px 230px;
 	top: -8px;
 	right: -8px;
 }
@@ -87,13 +103,10 @@ div.options {
 	text-align: center;
 }
 #play {
-	background-color: transparent;
 	color: #303030 ;
 	font-size: 1em;
 	height: 40px;
 	width: 120px;
-	border: 2px solid #303030 ;
-	border-radius: 10px;
 }
 #play:active {
 	background-color: #eee;

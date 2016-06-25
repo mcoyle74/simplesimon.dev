@@ -89,6 +89,11 @@ $(document).ready(function () {
 		}, 1200);
 	});
 
+	$('#brick').click(function() {
+		console.log('brick');
+		$('link').attr('href', '/css/style-lego.css');
+	});
+
 	disablePlayer();
 	start();
 });
