@@ -4,17 +4,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Chango|Sniglet:800" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Sniglet:800" rel="stylesheet">
 	<title>Simple Simon</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css" id="link">
 </head>
 
 <body>
 <div id="header">
 	<h1>simple simon</h1>
-	<p id="score"></p>
+	<h2 id="score"></h2>
 </div>
 <div class="options" id="options-div">
 	<h3>options:</h3>
-	<button class="options" id="brick" type="button">lego	</button>
+	<button class="options" id="simon" type="button" data-option="1">simon</button>
+	<button class="options" id="brick" type="button" data-option="2">lego</button>
+	<button class="options" id="marvel" type="button" data-option="3">marvel</button>
+	<button class="options" id="batman" type="button" data-option="4">batman</button>
 </div>
 <div id="game">
 	<div class="flash" id="flash-red"></div>
@@ -28,7 +31,7 @@
 </div>
 <div id="control">
 	<h2 id="instructions">Press <span class="italics">Play</span> to begin.</h2>
-	<button id="play" type="button">Play</button>
+	<button class="play" id="play" type="button">Play</button>
 </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

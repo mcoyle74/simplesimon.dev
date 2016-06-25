@@ -5,6 +5,7 @@ $(document).ready(function () {
 	var pressPlay = $('#play');
 	var instructions = $('#instructions');
 	var tiles = $('[data-id]');
+	var options = $('.options');
 	var highScore = 0;
 	var sequence = [];
 	var round = 1;
@@ -21,11 +22,11 @@ $(document).ready(function () {
 		setTimeout(function() {
 			sequence.forEach(function(element, index) {
 				setTimeout(function(){
-				var iteration = $('[data-id="' + element + '"]');
-				iteration.hide().fadeIn(600);
-				}, 1000 * index);
+					var iteration = $('[data-id="' + element + '"]');
+					iteration.hide().fadeIn(500);
+				}, 900 * index);
 			});
-		}, 1500);
+		}, 1000);
 		playerGo();
 	}	
 
@@ -43,7 +44,7 @@ $(document).ready(function () {
 		tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
 		var buttonToLight = $('[data-id="' + tilePressed + '"');
-		buttonToLight.hide().fadeIn(600);
+		buttonToLight.hide().fadeIn(400);
 		if (tilePressed == sequence[index]) {
 			index++;
 		} else {
@@ -54,7 +55,12 @@ $(document).ready(function () {
 		if (index == sequence.length) {
 			index = 0;
 			round++;
-			getRandomTile();
+			setTimeout(function() {
+				instructions.html('Correct!');
+			}, 300);
+			setTimeout(function() {
+				getRandomTile();
+			}, 600)
 		}
 	});
 	}
@@ -86,12 +92,21 @@ $(document).ready(function () {
 		pressPlay.attr('hidden', true);
 		setTimeout(function() {
 			getRandomTile();
-		}, 1200);
+		}, 700);
 	});
 
-	$('#brick').click(function() {
-		console.log('brick');
-		$('link').attr('href', '/css/style-lego.css');
+	options.click(function(event) {
+		var link = $('#link')
+		var optionPressed = $(this).data('option');
+		if (optionPressed == 1) {
+			link.attr('href', '/css/style.css');
+		} else if (optionPressed == 2) {
+			link.attr('href', '/css/style-lego.css');
+		} else if (optionPressed == 3) {
+			link.attr('href', '/css/style.css');
+		} else if (optionPressed == 4)  {
+			link.attr('href', '/css/style.css');
+		}
 	});
 
 	disablePlayer();
