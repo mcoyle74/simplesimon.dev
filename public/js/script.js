@@ -52,7 +52,7 @@
 		if (index == sequence.length) {
 			index = 0;
 			round++;
-			highScore += round;
+			highScore = round -1;
 			getRandomTile();
 		}
 	});
