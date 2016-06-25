@@ -52,7 +52,6 @@
 		if (index == sequence.length) {
 			index = 0;
 			round++;
-			highScore = round -1;
 			getRandomTile();
 		}
 	});
@@ -63,6 +62,9 @@
 	}
 
 	function gameOver() {
+		if ((round - 1) > highScore) {
+			highScore = round -1;
+		}
 		if ((highScore != 0) && (round == highScore)) {
 			instructions.html('Game Over<br>You completed ' + (round - 1) + ' rounds, matching your high score!');
 		} else if ((highScore != 0) && (round > highScore)) {
@@ -70,7 +72,7 @@
 		} else {
 			instructions.html('Game Over<br>You completed ' + (round - 1) + ' rounds. Please try again.');
 		}
-		$('#score').html('High Score: ' + highScore);
+		$('#score').html('high score: ' + highScore);
 		pressPlay.attr('hidden', false);
 		pressPlay.html('Play again?');
 	}
