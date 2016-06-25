@@ -42,6 +42,8 @@
 		}, 1000);
 		tiles.click(function(event) {
 		var tilePressed = $(this).data('id');
+		var buttonToLight = $('[data-id="' + tilePressed + '"');
+		buttonToLight.hide().fadeIn(600);
 		if (tilePressed == sequence[index]) {
 			index++;
 		} else {
