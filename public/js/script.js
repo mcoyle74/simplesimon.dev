@@ -24,7 +24,7 @@ $(document).ready(function () {
 				setTimeout(function(){
 					var iteration = $('[data-id="' + element + '"]');
 					iteration.hide().fadeIn(500);
-				}, 900 * index);
+				}, 1000 * index);
 			});
 		}, 1000);
 		playerGo();
